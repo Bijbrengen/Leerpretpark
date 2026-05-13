@@ -3,41 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mijn Web App</title>
+    <title>Archetypen Leerpret</title>
     <link rel="manifest" href="manifest.json">
     <style>
-        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f0f2f5; }
-        .card { background: white; padding: 2rem; border-radius: 15px; shadow: 0 4px 6px rgba(0,0,0,0.1); width: 80%; max-width: 400px; text-align: center; }
-        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #eef2f7; }
+        .card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 90%; max-width: 450px; text-align: center; }
+        h1 { color: #2c3e50; margin-bottom: 0.5rem; }
+        p { color: #7f8c8d; margin-bottom: 1.5rem; }
+        select, button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; }
+        button { background: #27ae60; color: white; border: none; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: #2ecc71; }
+        #status { font-size: 0.9rem; margin-top: 15px; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="card">
-        <h1>Welkom</h1>
-        <p id="status">Bezig met controleren van toegang...</p>
+        <h1>Leerpret App</h1>
+        <p id="status">Controleer toegang...</p>
+        
         <div id="app-content" style="display:none;">
-            <input type="text" id="userInput" placeholder="Typ hier iets...">
-            <button onclick="verstuurData()">Opslaan in Google Sheets</button>
+            <label for="archetype">Kies een Archetype:</label>
+            <select id="archetype">
+                <option value="Veroveraar">Veroveraar</option>
+                <option value="Verwerver">Verwerver</option>
+                <option value="Verkenner">Verkenner</option>
+                <option value="Volger">Volger</option>
+                <option value="Verlater">Verlater</option>
+            </select>
+            <button onclick="verstuurData()">Gegevens Opslaan</button>
         </div>
     </div>
 
     <script>
-        // Haal de hash uit de URL (bijv. ?id=a1b2c3)
+        // Haal de hash uit de URL (?id=...)
         const urlParams = new URLSearchParams(window.location.search);
         const userHash = urlParams.get('id');
 
-        // Simpele controle (later te koppelen aan je lijstje)
+        // Toegangscontrole
         if (userHash) {
-            document.getElementById('status').innerText = "Toegang verleend voor code: " + userHash;
+            document.getElementById('status').innerText = "Toegang verleend (ID: " + userHash + ")";
+            document.getElementById('status').style.color = "#27ae60";
             document.getElementById('app-content').style.display = "block";
         } else {
-            document.getElementById('status').innerText = "Geen geldige toegangscode gevonden.";
+            document.getElementById('status').innerText = "❌ Geen geldige toegangscode.";
+            document.getElementById('status').style.color = "#e74c3c";
         }
 
-        function verstuurData() {
-            const data = document.getElementById('userInput').value;
-            // Hier komt straks de link naar je Google Form
-            alert("Data verzonden: " + data + " met hash: " + userHash);
+        async function verstuurData() {
+            const archetype = document.getElementById('archetype').value;
+            const statusText = document.getElementById('status');
+
+            // De specifieke Google Form ID's die we net hebben opgehaald
+            const formID = "1FAIpQLSfW7ql1je-E_FRJkIpQZKXckNM7RG3oBy3mj6hE5Va9DGwkEA";
+            const entryID_Sleutel = "entry.233683089";
+            const entryID_Data = "entry.40201663";
+
+            const url = `https://docs.google.com/forms/d/e/${formID}/formResponse?${entryID_Sleutel}=${userHash}&${entryID_Data}=${archetype}&submit=Submit`;
+
+            statusText.innerText = "Bezig met opslaan...";
+
+            try {
+                await fetch(url, { mode: 'no-cors' });
+                statusText.innerText = "✅ Succesvol verzonden naar Google!";
+                statusText.style.color = "#27ae60";
+            } catch (error) {
+                statusText.innerText = "❌ Fout bij verzenden. Probeer opnieuw.";
+                statusText.style.color = "#e74c3c";
+            }
         }
     </script>
 </body>
