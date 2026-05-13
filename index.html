@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn Web App</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f0f2f5; }
+        .card { background: white; padding: 2rem; border-radius: 15px; shadow: 0 4px 6px rgba(0,0,0,0.1); width: 80%; max-width: 400px; text-align: center; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Welkom</h1>
+        <p id="status">Bezig met controleren van toegang...</p>
+        <div id="app-content" style="display:none;">
+            <input type="text" id="userInput" placeholder="Typ hier iets...">
+            <button onclick="verstuurData()">Opslaan in Google Sheets</button>
+        </div>
+    </div>
+
+    <script>
+        // Haal de hash uit de URL (bijv. ?id=a1b2c3)
+        const urlParams = new URLSearchParams(window.location.search);
+        const userHash = urlParams.get('id');
+
+        // Simpele controle (later te koppelen aan je lijstje)
+        if (userHash) {
+            document.getElementById('status').innerText = "Toegang verleend voor code: " + userHash;
+            document.getElementById('app-content').style.display = "block";
+        } else {
+            document.getElementById('status').innerText = "Geen geldige toegangscode gevonden.";
+        }
+
+        function verstuurData() {
+            const data = document.getElementById('userInput').value;
+            // Hier komt straks de link naar je Google Form
+            alert("Data verzonden: " + data + " met hash: " + userHash);
+        }
+    </script>
+</body>
+</html>
