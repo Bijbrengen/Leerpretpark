@@ -3,74 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archetypen Leerpret</title>
-    <link rel="manifest" href="manifest.json">
+    <title>Wat Als? - Archetypen Game</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #eef2f7; }
-        .card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 90%; max-width: 450px; text-align: center; }
-        h1 { color: #2c3e50; margin-bottom: 0.5rem; }
-        p { color: #7f8c8d; margin-bottom: 1.5rem; }
-        select, button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; }
-        button { background: #27ae60; color: white; border: none; font-weight: bold; cursor: pointer; transition: background 0.3s; }
-        button:hover { background: #2ecc71; }
-        #status { font-size: 0.9rem; margin-top: 15px; font-weight: bold; }
+        :root { --primary: #3498db; --success: #27ae60; --bg: #f4f7f6; --text: #2c3e50; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 20px; margin: 0; }
+        .game-container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 600px; position: relative; }
+        .progress-bar { height: 8px; background: #eee; border-radius: 4px; margin-bottom: 25px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--primary); transition: width 0.3s; }
+        .casus-card { animation: fadeIn 0.4s ease-out; }
+        h2 { margin-top: 0; color: var(--primary); }
+        .context-box { background: #f8f9fa; padding: 15px; border-radius: 12px; border-left: 5px solid var(--primary); margin: 15px 0; font-size: 0.95rem; line-height: 1.5; }
+        .slider-group { margin: 25px 0; }
+        .slider-label { display: flex; justify-content: space-between; font-weight: 600; font-size: 0.85rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        input[type=range] { width: 100%; height: 6px; background: #ddd; border-radius: 5px; outline: none; -webkit-appearance: none; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; cursor: pointer; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        textarea { width: 100%; height: 80px; margin-top: 15px; border-radius: 10px; border: 1px solid #ddd; padding: 12px; font-family: inherit; resize: none; box-sizing: border-box; }
+        button { background: var(--success); color: white; border: none; padding: 16px; width: 100%; border-radius: 12px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 25px; transition: transform 0.1s, background 0.2s; }
+        button:active { transform: scale(0.98); }
+        button:hover { background: #219150; }
+        #finish-screen { text-align: center; padding: 40px 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Leerpret App</h1>
-        <p id="status">Controleer toegang...</p>
-        
-        <div id="app-content" style="display:none;">
-            <label for="archetype">Kies een Archetype:</label>
-            <select id="archetype">
-                <option value="Veroveraar">Veroveraar</option>
-                <option value="Verwerver">Verwerver</option>
-                <option value="Verkenner">Verkenner</option>
-                <option value="Volger">Volger</option>
-                <option value="Verlater">Verlater</option>
-            </select>
-            <button onclick="verstuurData()">Gegevens Opslaan</button>
+
+<div class="game-container">
+    <div class="progress-bar"><div id="progress" class="progress-fill" style="width: 0%;"></div></div>
+    
+    <div id="game-content">
         </div>
+
+    <div id="finish-screen" style="display:none;">
+        <h1 style="font-size: 4rem;">🎉</h1>
+        <h2>Missie Voltooid!</h2>
+        <p>Bedankt voor je deelname. Alle 30 scenario's zijn verwerkt en veilig opgeslagen in het systeem.</p>
     </div>
+</div>
 
-    <script>
-        // Haal de hash uit de URL (?id=...)
-        const urlParams = new URLSearchParams(window.location.search);
-        const userHash = urlParams.get('id');
+<script>
+    const casussen = [
+        { id: 1, naam: "David Goggins", context: "David Goggins deed mee aan zware militaire selectie en duursport. In bekende verhalen over hem keren fysieke uitputting, blessures en het halen van zware doelen terug.", watAls: "Stel dat David in een organisatie komt waar een team een bijna onhaalbaar project heeft opgegeven. Er is een korte deadline en eerdere pogingen zijn mislukt." },
+        { id: 2, naam: "Rocky Balboa", context: "Bokser uit de filmreeks Rocky. Hij traint zwaar, incasseert veel klappen en het gevecht draait om blijven staan tot het einde.", watAls: "Stel dat Rocky een leerling begeleidt die steeds zakt voor een praktijkproef. De leerling kan stoppen of nog een keer trainen voor dezelfde zware proef." },
+        { id: 3, naam: "John Henry", context: "Figuur uit Amerikaanse folklore. Hij nam het als spoorwegarbeider met zijn hamer op tegen een boormachine en won, maar de inspanning kostte hem zijn leven.", watAls: "Stel dat John Henry in een fabriek werkt waar een nieuwe machine zijn ploeg dreigt te vervangen. Er is een demonstratiedag voor handwerk." },
+        { id: 4, naam: "Beowulf", context: "Held uit een Oudengels epos. Hij gaat het gevecht aan met monsters. De verhalen draaien om directe confrontatie en bescherming van de gemeenschap.", watAls: "Stel dat Beowulf in een dorp komt waar niemand naar een bedreigde plek durft. De groep wil wachten op hulp, maar het gevaar kan vannacht toeslaan." },
+        { id: 5, naam: "Leonidas", context: "Koning van Sparta, bekend van Thermopylae waar hij met een kleine macht een nauwe pas verdedigde tegen een overmacht.", watAls: "Stel dat Leonidas een smalle doorgang moet bewaken terwijl de meerderheid zich kan terugtrekken. Blijven betekent groot risico." },
+        { id: 6, naam: "Spartacus", context: "Gladiator die een grote slavenopstand tegen Rome leidde. Zijn groep won meerdere gevechten tegen legers.", watAls: "Stel dat Spartacus in een streng trainingskamp zit met zware regels. Er ontstaat een kans om te ontsnappen met groot risico op straf." },
+        { id: 7, naam: "Niki Lauda", context: "Formule 1-coureur die na een zware crash en brandwonden binnen enkele weken terugkeerde in de racewagen.", watAls: "Stel dat Lauda na een ernstig ongeluk een nieuwe test aangeboden krijgt. De auto is verbeterd, maar het risico is nog zichtbaar." },
+        { id: 8, naam: "Kathrine Switzer", context: "Liep in 1967 de Boston Marathon. Ondanks dat een wedstrijdleider haar van het parcours probeerde te duwen, liep ze door en finishte.", watAls: "Stel dat Switzer aan een wedstrijd deelneemt waar haar deelname formeel wordt betwist. Er ontstaat druk om direct te stoppen." },
+        { id: 9, naam: "Ebenezer Scrooge", context: "Voor zijn verandering getoond als iemand die geld bewaart, kosten laag houdt en sociale uitgaven vermijdt.", watAls: "Stel dat Scrooge een schoolreis moet organiseren met een beperkt budget. Er zijn sobere, dure of feestelijke opties." },
+        { id: 10, naam: "Jordan Belfort", context: "Leidde een verkooporganisatie rond aandelen. Belscripts, commissies, snelle deals en verkoopdruk spelen een grote rol.", watAls: "Stel dat Belfort een nieuw educatief platform lanceert. Er is keuze tussen kwaliteit, snelle klantwerving of breed experimenteren." },
+        { id: 11, naam: "Charles Ponzi", context: "Bekend door een investeringsschema met hoge rendementen uit nieuwe inleg. De route draaide om een schijnbaar slimme arbitrage.", watAls: "Stel dat Ponzi een leerplatform moet verkopen. Er is weinig bewijs dat het werkt, maar er is een verhaal te maken over snelle groei." },
+        { id: 12, naam: "Bernie Madoff", context: "Beheerde een investeringsfonds dat stabiele rendementen leek te leveren, maar dit bleek een grootschalige fraude.", watAls: "Stel dat Madoff verantwoordelijk wordt voor een dashboard met leerresultaten. De resultaten wisselen, maar de buitenwereld wil stabiele groei zien." },
+        { id: 13, naam: "Enron Executives", context: "Gebruikten complexe financiele constructies waardoor winst en waarde hoger leken dan ze werkelijk waren.", watAls: "Stel dat Enron-leiders een project moeten presenteren waarvan de opbrengst onzeker is, maar investeerders groei verwachten." },
+        { id: 14, naam: "Black Friday Shopper", context: "Zoekt tijdens grote kortingsacties naar aanbiedingen. Draait om beperkte tijd, vergelijking en het binnenhalen van de beste deal.", watAls: "Stel dat deze shopper een cursus mag kiezen uit honderd opties met een korting die nog maar een uur geldig is." },
+        { id: 15, naam: "Gordon Gekko", context: "Koopt en verkoopt bedrijven, richt zich op financieel rendement en waarde-extractie.", watAls: "Stel dat Gekko een onderpresterende school overneemt. Hij kan investeren, onderdelen verkopen of snelle targets opleggen." },
+        { id: 16, naam: "Tom Sawyer", context: "Bekend van de schutting-scene waarbij hij anderen laat geloven dat een saaie klus een bijzonder voorrecht is.", watAls: "Stel dat Tom een saaie klus in een projectgroep krijgt. Niemand wil eraan beginnen, maar het moet wel af." },
+        { id: 17, naam: "Jorge Luis Borges", context: "Schrijver wiens werk bibliotheken, labyrinten en oneindigheid verkent. Hoe kennis en taal de werkelijkheid spiegelen.", watAls: "Stel dat Borges een digitale leeromgeving ontwerpt rond geschiedenis. Kiest hij voor een rechte cursus of een netwerk van bronnen?" },
+        { id: 18, naam: "Michel de Montaigne", context: "Schreef essays waarin hij gedachten onderzocht over zichzelf en de wereld. De vorm beweegt zoekend tussen onderwerpen.", watAls: "Stel dat Montaigne een les moet maken over burgerschap. Gebruikt hij een stappenplan of laat hij leerlingen vrij nadenken via vragen?" },
+        { id: 19, naam: "Athanasius Kircher", context: "Geleerde die vele kennisgebieden verbond (vulcanisme, muziek, hierogliefen), ook als de conclusies later onjuist bleken.", watAls: "Stel dat Kircher een mysterieus object in een museum krijgt dat niemand begrijpt. Hij kan putten uit taal, techniek of religie." },
+        { id: 20, naam: "Salvador Dali", context: "Surrealist die gewone objecten in vreemde, droomachtige situaties plaatste.", watAls: "Stel dat Dali een leerposter moet maken over tijd. Gebruikt hij een klokdiagram of beelden die tijd vreemd laten voelen?" },
+        { id: 21, naam: "Rene Magritte", context: "Surrealist die speelde met het verschil tussen een ding en de afbeelding of de naam ervan.", watAls: "Stel dat Magritte kinderen het woord 'boom' moet leren. Gebruikt hij een gewone afbeelding of speelt hij met woord en betekenis?" },
+        { id: 22, naam: "Louis Theroux", context: "Maakt documentaires waarin hij via ongemakkelijke ontmoetingen met subculturen andere werelden laat zien.", watAls: "Stel dat Theroux een school moet helpen begrijpen waarom leerlingen afhaken. Analyseert hij cijfers of beweegt hij mee in hun wereld?" },
+        { id: 23, naam: "Gulliver", context: "Komt terecht bij vreemde samenlevingen met eigen regels, zoals de Lilliputters of reuzen.", watAls: "Stel dat Gulliver een onbekende klas binnenkomt waar alle regels anders werken. Probeert hij een doel af te dwingen of de nieuwe wereld te begrijpen?" },
+        { id: 24, naam: "Leonardo da Vinci", context: "Schilder en onderzoeker wiens notitieboeken studie tonen naar water, vliegen, anatomie en techniek.", watAls: "Stel dat Leonardo een beter klaslokaal moet ontwerpen. Maakt hij een praktisch plan of onderzoekt hij licht, beweging en kunst?" },
+        { id: 25, naam: "Sancho Panza", context: "Reist mee met Don Quichot. Verzorgt praktische zaken, blijft in de buurt en ondergaat avonturen nuchter.", watAls: "Stel dat Sancho met een vriend aan een vreemd project begint. De vriend ziet grootse kansen, Sancho ziet praktische problemen." },
+        { id: 26, naam: "Pumbaa", context: "Leeft volgens Hakuna Matata: doorgaan zonder zorgen, eten wat voorhanden is en in gezelschap blijven.", watAls: "Stel dat Pumbaa in een trainingsgroep komt waar iedereen prestatiedoelen stelt. Gaat hij mee in de sfeer of de prestatie?" },
+        { id: 27, naam: "Koorzanger", context: "Volgt partituur en dirigent, stemt af op anderen en werkt toe naar gezamenlijke harmonie.", watAls: "Stel dat de koorzanger in een project komt waar iedereen een eigen route mag kiezen naast een vaste gezamenlijke oefenroute." },
+        { id: 28, beauty: "De Line-dancer", context: "Danst in een groep volgens vaste passen en muziek. Draait om ritme, herhaling en synchroon bewegen.", watAls: "Stel dat de line-dancer een nieuwe vaardigheid leert. Er is een experimenteerhoek, een wedstrijd en een groepsroutine." },
+        { id: 29, naam: "De Conga-line danser", context: "Sluit aan in een rij, houdt tempo van de voorganger aan en beweegt mee met de muziek.", watAls: "Stel dat de danser in een onbekend spel komt met simpele groepsregels, individuele opdrachten en zijroutes." },
+        { id: 30, naam: "De Kerkganger", context: "Neemt deel aan een terugkerend ritueel met vaste onderdelen, teksten en een herkenbare gemeenschap.", watAls: "Stel dat de kerkganger een leertraject kiest: vaste bijeenkomsten, competitie, vrij onderzoek of een prestatietoets." }
+    ];
 
-        // Toegangscontrole
-        if (userHash) {
-            document.getElementById('status').innerText = "Toegang verleend (ID: " + userHash + ")";
-            document.getElementById('status').style.color = "#27ae60";
-            document.getElementById('app-content').style.display = "block";
+    let currentStep = 0;
+    const urlParams = new URLSearchParams(window.location.search);
+    const userHash = urlParams.get('id') || "ANONIEM";
+
+    function renderCasus() {
+        const c = casussen[currentStep];
+        const html = `
+            <div class="casus-card">
+                <small>Scenario ${currentStep + 1} / ${casussen.length}</small>
+                <h2>${c.naam}</h2>
+                <p><i>${c.context}</i></p>
+                <div class="context-box">
+                    <strong>Wat als?</strong><br>${c.watAls}
+                </div>
+
+                ${renderSlider("weerstand", "Doorbraak via weerstand")}
+                ${renderSlider("resultaat", "Zichtbaar resultaat")}
+                ${renderSlider("routes", "Nieuwe routes / Experiment")}
+                ${renderSlider("houvast", "Houvast / Meebewegen")}
+
+                <textarea id="toelichting" placeholder="Welke informatie gebruikte je voor je inschatting? (Optioneel)"></textarea>
+                <button onclick="volgendeStap()">Bevestigen & Volgende →</button>
+            </div>
+        `;
+        document.getElementById('game-content').innerHTML = html;
+        document.getElementById('progress').style.width = ((currentStep / casussen.length) * 100) + "%";
+        window.scrollTo(0,0);
+    }
+
+    function renderSlider(id, label) {
+        return `
+            <div class="slider-group">
+                <div class="slider-label"><span>${label}</span><span id="val-${id}">50</span></div>
+                <input type="range" id="${id}" min="0" max="100" value="50" oninput="document.getElementById('val-${id}').innerText = this.value">
+            </div>
+        `;
+    }
+
+    async function volgendeStap() {
+        const data = {
+            id: casussen[currentStep].id,
+            casus: casussen[currentStep].naam,
+            scores: {
+                weerstand: document.getElementById('weerstand').value,
+                resultaat: document.getElementById('resultaat').value,
+                routes: document.getElementById('routes').value,
+                houvast: document.getElementById('houvast').value
+            },
+            toelichting: document.getElementById('toelichting').value
+        };
+
+        const formID = "1FAIpQLSfW7ql1je-E_FRJkIpQZKXckNM7RG3oBy3mj6hE5Va9DGwkEA";
+        const entryID_Sleutel = "entry.233683089";
+        const entryID_Data = "entry.40201663";
+        
+        const url = `https://docs.google.com/forms/d/e/${formID}/formResponse?${entryID_Sleutel}=${userHash}&${entryID_Data}=${encodeURIComponent(JSON.stringify(data))}&submit=Submit`;
+        
+        fetch(url, { mode: 'no-cors' });
+
+        currentStep++;
+        if (currentStep < casussen.length) {
+            renderCasus();
         } else {
-            document.getElementById('status').innerText = "❌ Geen geldige toegangscode.";
-            document.getElementById('status').style.color = "#e74c3c";
+            document.getElementById('game-content').style.display = "none";
+            document.getElementById('finish-screen').style.display = "block";
+            document.getElementById('progress').style.width = "100%";
         }
+    }
 
-        async function verstuurData() {
-            const archetype = document.getElementById('archetype').value;
-            const statusText = document.getElementById('status');
+    renderCasus();
+</script>
 
-            // De specifieke Google Form ID's die we net hebben opgehaald
-            const formID = "1FAIpQLSfW7ql1je-E_FRJkIpQZKXckNM7RG3oBy3mj6hE5Va9DGwkEA";
-            const entryID_Sleutel = "entry.233683089";
-            const entryID_Data = "entry.40201663";
-
-            const url = `https://docs.google.com/forms/d/e/${formID}/formResponse?${entryID_Sleutel}=${userHash}&${entryID_Data}=${archetype}&submit=Submit`;
-
-            statusText.innerText = "Bezig met opslaan...";
-
-            try {
-                await fetch(url, { mode: 'no-cors' });
-                statusText.innerText = "✅ Succesvol verzonden naar Google!";
-                statusText.style.color = "#27ae60";
-            } catch (error) {
-                statusText.innerText = "❌ Fout bij verzenden. Probeer opnieuw.";
-                statusText.style.color = "#e74c3c";
-            }
-        }
-    </script>
 </body>
 </html>
