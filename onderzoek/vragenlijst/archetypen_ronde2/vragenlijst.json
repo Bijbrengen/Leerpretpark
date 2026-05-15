@@ -1,0 +1,694 @@
+{
+  "titel": "Reactielab",
+  "ronde": 2,
+  "dimensies": [
+    {
+      "id": "weerstand",
+      "korteNaam": "Doorbraak",
+      "kleur": "#D94848"
+    },
+    {
+      "id": "resultaat",
+      "korteNaam": "Resultaat",
+      "kleur": "#D9912B"
+    },
+    {
+      "id": "routes",
+      "korteNaam": "Routes",
+      "kleur": "#188977"
+    },
+    {
+      "id": "houvast",
+      "korteNaam": "Houvast",
+      "kleur": "#4267B2"
+    },
+    {
+      "id": "instap",
+      "korteNaam": "Instapkans",
+      "kleur": "#6B7280",
+      "diagnostisch": true
+    }
+  ],
+  "casussen": [
+    {
+      "id": 1,
+      "naam": "De robotfinale",
+      "analysefunctie": "Mengcase",
+      "verwachteSpanning": "Veroveraar - Verwerver",
+      "doelpersoon": "Deze doelpersoon koos eerder vaak voor opdrachten met een harde succesgrens. Wanneer iets bijna lukte, bleef diegene herhalen tot het lukte. Tegelijk hield diegene scherp bij of de poging ook echt punten, bewijs of erkenning opleverde.",
+      "situatie": "Een team heeft een kleine robot gebouwd voor een schoolfinale. De robot valt steeds om bij de laatste hindernis. Er is nog een uur. De jury geeft alleen punten voor een werkende eindrun, maar het team weet dat de hindernis ook met veel brute herhaling te leren is.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon de hindernis blijft aanvallen tot de robot erdoor komt?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral de hoogste juryscore veilig wil stellen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon nog alternatieve routes of bouwkeuzes probeert?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon het teamtempo volgt en kiest wat iedereen rustig houdt?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-01.jpg",
+      "beeldBron": "File:2020 Infinite Recharge field.jpg",
+      "personaNaam": "Mika",
+      "personaTitel": "de finalist",
+      "personaKern": "Mika leeft op als iets bijna lukt en er een harde eindstreep is.",
+      "personaSignalen": [
+        "kiest eerder nog een zware poging dan een halve oplossing",
+        "wil kunnen aanwijzen dat het echt gelukt is",
+        "kan koppig worden wanneer erkenning op het spel staat"
+      ],
+      "situatieBeeld": "assets/commons/case-01.jpg",
+      "situatieBeeldBron": "File:2020 Infinite Recharge field.jpg",
+      "personaBeeld": "assets/personas/persona-01.jpeg",
+      "personaBeeldBron": "File:Photograph of a North Habersham High School student working behind a shop counter selling cameras, Clarkesville, Habersham County, Georgia, 1950 - DPLA - 6ccabcf5abab6a8f1412a051af3fed79-008.jpeg"
+    },
+    {
+      "id": 2,
+      "naam": "Het gesloten archief",
+      "analysefunctie": "Mengcase",
+      "verwachteSpanning": "Veroveraar - Verkenner",
+      "doelpersoon": "Deze doelpersoon bleef eerder rustig zoeken wanneer een toegang geblokkeerd was. Soms probeerde diegene de blokkade rechtstreeks te forceren, maar net zo vaak volgde diegene sporen, plattegronden en verhalen om een onverwachte ingang te vinden.",
+      "situatie": "In een oud schoolgebouw is een afgesloten archiefkamer. Achter de deur ligt waarschijnlijk informatie voor een project, maar niemand weet of de sleutel nog bestaat. Er zijn geruchten over een tweede ingang, een oude plattegrond en een beheerder die meer weet.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon de blokkade direct probeert te doorbreken?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral zoekt naar de informatie die het project afmaakt?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon verschillende sporen, ingangen en verhalen onderzoekt?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon wacht op toestemming of begeleiding?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-02.jpg",
+      "beeldBron": "File:A storage room 1937 (JOKAKAL3B-3860).tif",
+      "personaNaam": "Noor",
+      "personaTitel": "de spoorzoeker",
+      "personaKern": "Noor ziet een blokkade als beginpunt van een zoektocht.",
+      "personaSignalen": [
+        "probeert soms direct door te duwen",
+        "verzamelt tegelijk aanwijzingen, routes en verhalen",
+        "blijft nieuwsgierig zolang er een verborgen ingang kan zijn"
+      ],
+      "situatieBeeld": "assets/commons/case-02.jpg",
+      "situatieBeeldBron": "File:A storage room 1937 (JOKAKAL3B-3860).tif",
+      "personaBeeld": "assets/personas/persona-02.jpg",
+      "personaBeeldBron": "File:018 Human looking at the stars during Perseids with the Milky Way in the background Photo by Giles Laurent.jpg"
+    },
+    {
+      "id": 3,
+      "naam": "De stormoefening",
+      "analysefunctie": "Mengcase",
+      "verwachteSpanning": "Veroveraar - Volger",
+      "doelpersoon": "Deze doelpersoon werd eerder actiever wanneer een oefening zwaar, koud of rommelig werd. Dat gebeurde vooral als er een duidelijke ploeg, leider of ritme was. Alleen strijden trok minder dan samen door de spanning heen gaan.",
+      "situatie": "Een groep oefent een noodscenario op een winderig plein. De opdracht is zwaar en chaotisch, maar er is een vaste leider die steeds korte commando's geeft. Iemand in de groep krijgt energie van de spanning, maar houdt tegelijk de groep strak bij elkaar.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon juist door de zware omstandigheden extra doorgaat?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral de oefening succesvol wil afronden?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon andere aanpakken of routes door het plein probeert?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral het ritme van de leider en de groep volgt?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-03.jpg",
+      "beeldBron": "File:August 2007, emergency exercise in Ginza.jpg",
+      "personaNaam": "Tess",
+      "personaTitel": "de ploegduwer",
+      "personaKern": "Tess krijgt energie van spanning als er een groep is om doorheen te trekken.",
+      "personaSignalen": [
+        "wordt actiever wanneer omstandigheden moeilijk worden",
+        "houdt graag tempo met een leider of ploeg",
+        "zoekt minder solo-strijd dan gezamenlijke volharding"
+      ],
+      "situatieBeeld": "assets/commons/case-03.jpg",
+      "situatieBeeldBron": "File:August 2007, emergency exercise in Ginza.jpg",
+      "personaBeeld": "assets/personas/persona-03.jpg",
+      "personaBeeldBron": "File:Fire team leaders pave way during Integrated Training Exercise 130809-M-HQ487-093.jpg"
+    },
+    {
+      "id": 4,
+      "naam": "De markttafel",
+      "analysefunctie": "Mengcase",
+      "verwachteSpanning": "Verwerver - Verkenner",
+      "doelpersoon": "Deze doelpersoon wilde eerder zichtbaar resultaat halen, maar veranderde onderweg makkelijk van aanpak. Als een plan niet werkte, probeerde diegene andere woorden, plekken, prijzen of vormen tot er beweging kwam.",
+      "situatie": "Een leerling verkoopt op een markt zelfgemaakte kaarten. Het doel is tien kaarten verkopen, maar na een uur zijn het er twee. Er zijn nog meerdere mogelijkheden: de prijs veranderen, een nieuw verhaal bij de kaarten bedenken, een andere plek zoeken of de voorraad anders presenteren.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon de tegenvallende verkoop als uitdaging aangaat?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral het verkoopdoel wil halen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon meerdere verkooproutes en presentaties uitprobeert?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon bij het oorspronkelijke plan van de begeleider blijft?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-04.jpg",
+      "beeldBron": "File:A market stall (1), da Coleção Brasiliana Iconográfica.jpg",
+      "personaNaam": "Ravi",
+      "personaTitel": "de ombouwer",
+      "personaKern": "Ravi wil resultaat, maar verandert zonder veel moeite van aanpak.",
+      "personaSignalen": [
+        "stuurt op zichtbaar effect",
+        "probeert andere woorden, plekken of vormen als iets niet werkt",
+        "meet succes aan beweging in de buitenwereld"
+      ],
+      "situatieBeeld": "assets/commons/case-04.jpg",
+      "situatieBeeldBron": "File:A market stall (1), da Coleção Brasiliana Iconográfica.jpg",
+      "personaBeeld": "assets/personas/persona-04.jpg",
+      "personaBeeldBron": "File:Farmers market vendor, Richfield, MN.jpg"
+    },
+    {
+      "id": 5,
+      "naam": "Het stagebewijs",
+      "analysefunctie": "Mengcase",
+      "verwachteSpanning": "Verwerver - Volger",
+      "doelpersoon": "Deze doelpersoon deed eerder betrouwbaar mee wanneer er een duidelijke begeleider, checklist en eindbewijs waren. De energie zat niet in eigen zijpaden, maar in de zekerheid dat elke stap klopte en werd afgetekend.",
+      "situatie": "Een stagiair moet nog drie vaste handelingen laten aftekenen. De begeleider heeft een duidelijke checklist en zegt precies wanneer wat moet gebeuren. De stagiair wil het bewijs graag halen, maar voelt weinig behoefte om buiten de checklist te zoeken.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon extra moeilijke handelingen opzoekt om zichzelf te testen?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral de drie handtekeningen wil binnenhalen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon eigen varianten of nieuwe routes probeert?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon rustig de checklist en het begeleiderritme volgt?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-05.png",
+      "beeldBron": "File:Bimetrical icon clipboard black.svg",
+      "personaNaam": "Mara",
+      "personaTitel": "de afvinker",
+      "personaKern": "Mara voelt zich sterk bij duidelijke stappen en een bewijs aan het einde.",
+      "personaSignalen": [
+        "werkt rustig door als de route helder is",
+        "houdt van aftekenen, afronden en bevestigd krijgen",
+        "zoekt weinig eigen zijpaden wanneer de checklist genoeg is"
+      ],
+      "situatieBeeld": "assets/commons/case-05.png",
+      "situatieBeeldBron": "File:Bimetrical icon clipboard black.svg",
+      "personaBeeld": "assets/personas/persona-05.jpg",
+      "personaBeeldBron": "File:FEMA - 44902 - SBA Specialist writing on a clipboard in Iowa.jpg"
+    },
+    {
+      "id": 6,
+      "naam": "Het buurtorkest",
+      "analysefunctie": "Mengcase",
+      "verwachteSpanning": "Verkenner - Volger",
+      "doelpersoon": "Deze doelpersoon bleef eerder graag in een groep meedoen, vooral wanneer er ritme en sfeer waren. Binnen dat ritme luisterde diegene wel naar kleine verschillen en probeerde soms een voorzichtige variatie zonder de groep los te laten.",
+      "situatie": "Een buurtorkest repeteert een eenvoudig lied. De meeste spelers volgen de dirigent en vinden plezier in samen spelen. Een speler luistert tegelijk naar kleine verschillen in klank, probeert soms een andere inzet en ontdekt hoe het lied verandert zonder de groep kwijt te raken.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon een lastig muzikaal obstakel blijft bevechten?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral een foutloze uitvoering wil neerzetten?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon nieuwe klanken, inzetten of variaties verkent?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral meebeweegt met dirigent en groep?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-06.png",
+      "beeldBron": "File:\"Rehearsal\", Daily Oklahoman - Oklahoma Symphony Orchestra.png",
+      "personaNaam": "Olin",
+      "personaTitel": "de meespeler",
+      "personaKern": "Olin blijft graag in het ritme van een groep, met ruimte voor kleine variaties.",
+      "personaSignalen": [
+        "haalt energie uit samen blijven lopen",
+        "merkt subtiele verschillen in sfeer of klank op",
+        "wijkt voorzichtig af zonder de groep kwijt te raken"
+      ],
+      "situatieBeeld": "assets/commons/case-06.png",
+      "situatieBeeldBron": "File:\"Rehearsal\", Daily Oklahoman - Oklahoma Symphony Orchestra.png",
+      "personaBeeld": "assets/personas/persona-06.jpg",
+      "personaBeeldBron": "File:2016-09-02-EVYM 2016 Rehearsal-Ludvig Gudim-8032.jpg"
+    },
+    {
+      "id": 7,
+      "naam": "De sluiproute naar de prijs",
+      "analysefunctie": "Mengcase",
+      "verwachteSpanning": "Verwerver - Verkenner, met Veroveraar-ruis",
+      "doelpersoon": "Deze doelpersoon raakte eerder gemotiveerd door een prijs of zichtbare beoordeling, maar koos daarvoor niet altijd de gewone route. Als een vreemde aanpak sneller naar bewijs leek te leiden, wilde diegene het risico nemen en testen of het werkte.",
+      "situatie": "Bij een ontwerpwedstrijd wint het team dat het snelst een bruikbaar prototype toont. Een leerling ontdekt een ongebruikelijke route: een materiaal gebruiken dat niemand had overwogen. Het kan mislukken, maar als het werkt is het prototype eerder klaar dan bij de veilige route.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon het risico aangaat ondanks kans op mislukking?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral de prijs of beoordeling wil winnen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon de ongebruikelijke materiaalroute verder onderzoekt?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon bij de veilige groepsaanpak blijft?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-07.png",
+      "beeldBron": "File:CERH Continental Cup Icon.svg",
+      "personaNaam": "Puck",
+      "personaTitel": "de prijszoeker",
+      "personaKern": "Puck jaagt op een zichtbare winst, maar durft daarvoor een vreemde route te kiezen.",
+      "personaSignalen": [
+        "wil weten of iets voordeel oplevert",
+        "test ongebruikelijke opties als die sneller kunnen werken",
+        "neemt risico wanneer bewijs of beoordeling dichterbij komt"
+      ],
+      "situatieBeeld": "assets/commons/case-07.png",
+      "situatieBeeldBron": "File:CERH Continental Cup Icon.svg",
+      "personaBeeld": "assets/personas/persona-07.jpg",
+      "personaBeeldBron": "File:Clay target shooting competition Ukraine winner with trophy 2025.jpg"
+    },
+    {
+      "id": 8,
+      "naam": "De cursus zonder adres",
+      "analysefunctie": "Verlater",
+      "verwachteSpanning": "Leernut te laag",
+      "doelpersoon": "Deze doelpersoon begon eerdere leertaken wanneer duidelijk was waarvoor ze nodig waren. Als een taak geen herkenbaar probleem, opbrengst of route had, schoof diegene hem snel opzij en ging terug naar werk dat wel urgent voelde.",
+      "situatie": "Een deelnemer krijgt een online cursus toegewezen met de titel 'Professionele groei'. De lessen noemen geen concrete taak, geen herkenbaar probleem en geen reden waarom dit nu nodig is. De deelnemer heeft die middag ook echt werk liggen dat wel urgent voelt.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon zich door weerstand heen werkt?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon een duidelijk resultaat uit de cursus wil halen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon nieuwsgierig verschillende onderdelen opent?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon gewoon meeloopt met de cursusroute?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-08.png",
+      "beeldBron": "File:Evidence of work.png",
+      "personaNaam": "Sam",
+      "personaTitel": "de nutzoeker",
+      "personaKern": "Sam stapt pas in als duidelijk is waarom iets nu de moeite waard is.",
+      "personaSignalen": [
+        "laat vage taken snel liggen",
+        "kiest eerder urgent echt werk dan algemene beloftes",
+        "heeft een herkenbaar probleem of opbrengst nodig"
+      ],
+      "situatieBeeld": "assets/commons/case-08.png",
+      "situatieBeeldBron": "File:Evidence of work.png",
+      "personaBeeld": "assets/personas/persona-08.jpg",
+      "personaBeeldBron": "File:Looking at the laptop.jpg"
+    },
+    {
+      "id": 9,
+      "naam": "De kapotte escapebox",
+      "analysefunctie": "Verlater",
+      "verwachteSpanning": "Kost hoog, opbrengst onduidelijk",
+      "doelpersoon": "Deze doelpersoon hield eerder van puzzels wanneer fouten iets leerden en hints betrouwbaar waren. Wanneer materiaal kapot was en niemand kon uitleggen wat de bedoeling was, zakte de betrokkenheid snel weg.",
+      "situatie": "Een groep krijgt een escapebox voor een les. Twee sloten werken niet, een hintkaart mist en de begeleider weet zelf niet welke code bij welk vakje hoort. Na tien minuten lijkt elke poging vooral tijd te kosten zonder dat iemand snapt wat er geleerd moet worden.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon de kapotte puzzel alsnog probeert te breken?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon een bruikbare eindscore of afronding probeert te halen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon andere routes of interpretaties van de puzzel onderzoekt?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon de groep blijft volgen omdat dat nu eenmaal de opdracht is?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-09.jpg",
+      "beeldBron": "File:01 Puzzle Box Boxology 5766.jpg",
+      "personaNaam": "Iris",
+      "personaTitel": "de puzzeltester",
+      "personaKern": "Iris houdt van puzzels zolang fouten informatie geven.",
+      "personaSignalen": [
+        "probeert graag als hints betrouwbaar zijn",
+        "haakt af wanneer materiaal kapot of willekeurig voelt",
+        "wil kunnen zien wat een volgende poging beter maakt"
+      ],
+      "situatieBeeld": "assets/commons/case-09.jpg",
+      "situatieBeeldBron": "File:01 Puzzle Box Boxology 5766.jpg",
+      "personaBeeld": "assets/personas/persona-09.jpg",
+      "personaBeeldBron": "File:86th FSS unveils Port Royal Mystery Escape Room 160621-F-ZC075-098.jpg"
+    },
+    {
+      "id": 10,
+      "naam": "De verplichte herhaling",
+      "analysefunctie": "Verlater",
+      "verwachteSpanning": "Geen nieuw nut, lage impact",
+      "doelpersoon": "Deze doelpersoon rondde eerdere modules af wanneer ze nieuw, nodig of toetsbaar waren. Bij herhaling zonder nieuw nut klikte diegene wel eens door, maar de aandacht verdween en er kwam nauwelijks nog actief leren op gang.",
+      "situatie": "Een medewerker moet een module doorlopen die woordelijk hetzelfde is als vorig jaar. Er is geen toets, geen nieuw voorbeeld en geen zichtbare koppeling met het huidige werk. De knop 'volgende' verschijnt pas na een vaste wachttijd.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon de traagheid als uitdaging gebruikt?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral iets aantoonbaars uit de module wil halen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon zelf nieuwe verbanden of toepassingen gaat zoeken?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon de module rustig volgens het vaste ritme uitzit?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-10.jpg",
+      "beeldBron": "File:BZHL-E-Learning-SS13-01.jpg",
+      "personaNaam": "Bo",
+      "personaTitel": "de doorklikker",
+      "personaKern": "Bo rondt verplichte modules af, maar leert pas actief als er iets nieuws of nodigs in zit.",
+      "personaSignalen": [
+        "kan routineus meedoen zonder echte betrokkenheid",
+        "verliest aandacht bij letterlijke herhaling",
+        "zoekt nut, toetsing of actuele toepassing"
+      ],
+      "situatieBeeld": "assets/commons/case-10.jpg",
+      "situatieBeeldBron": "File:BZHL-E-Learning-SS13-01.jpg",
+      "personaBeeld": "assets/personas/persona-10.jpg",
+      "personaBeeldBron": "File:US Navy 100125-N-6623G-003 Sailors complete training on Navy Knowledge Online.jpg"
+    },
+    {
+      "id": 11,
+      "naam": "De verborgen regels",
+      "analysefunctie": "Verlater",
+      "verwachteSpanning": "Onbegrijpelijke route, lage instapkans",
+      "doelpersoon": "Deze doelpersoon testte eerder graag systemen door hypotheses uit te proberen. Maar als feedback willekeurig leek en geen enkele poging informatie gaf, stopte diegene meestal met zoeken omdat er geen bruikbare leerroute overbleef.",
+      "situatie": "Een leerapp geeft steeds rood of groen licht, maar legt niet uit waarom. De uitleg verwijst naar 'het juiste patroon', zonder voorbeelden. Na meerdere pogingen verandert de feedback niet en is onduidelijk wat een volgende poging beter zou maken.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon blijft proberen tot het patroon breekt?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon vooral de groene score wil halen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon verschillende hypotheses over de regels test?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon de app blijft volgen omdat die de route bepaalt?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat de doelpersoon in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-11.png",
+      "beeldBron": "File:15-puzzle-fringe.svg",
+      "personaNaam": "Kian",
+      "personaTitel": "de regeltester",
+      "personaKern": "Kian test graag verborgen systemen, maar niet als feedback niets leert.",
+      "personaSignalen": [
+        "maakt hypotheses over patronen",
+        "probeert varianten zolang reacties betekenis hebben",
+        "stopt wanneer regels ondoorzichtig en willekeurig blijven"
+      ],
+      "situatieBeeld": "assets/commons/case-11.png",
+      "situatieBeeldBron": "File:15-puzzle-fringe.svg",
+      "personaBeeld": "assets/personas/persona-11.jpg",
+      "personaBeeldBron": "File:Bundesarchiv B 145 Bild-F077948-0012, Jugend-Computerschule mit IBM-PC.jpg"
+    },
+    {
+      "id": 12,
+      "naam": "Nim in de weerkamer",
+      "analysefunctie": "Fictief vignet",
+      "verwachteSpanning": "Verkenner met resultaatruis",
+      "doelpersoon": "Nim maakte eerder betekenis door materialen naast elkaar te leggen en patronen te ontdekken. Nim begon zelden met een vast eindproduct, maar bleef wel lang bezig als er steeds nieuwe verbanden zichtbaar werden.",
+      "situatie": "Nim werkt in een fictieve weerkamer van een leerfestival. Op tafel liggen sensoren, papieren windrozen en oude weerkaarten. De opdracht is vaag: 'maak het weer zichtbaar'. Nim begint niet bij een eindproduct, maar legt sensoren naast kaarten, draait de windroos om en ontdekt hoe bezoekers zelf patronen kunnen voorspellen.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat Nim vooral een moeilijke blokkade wil overwinnen?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat Nim vooral een afgewerkt product wil tonen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat Nim verschillende materialen en routes onderzoekt?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat Nim vooral de vaste instructies van de tafel volgt?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat Nim in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-12.jpg",
+      "beeldBron": "File:Davis Instruments weather station.jpg",
+      "personaNaam": "Nim",
+      "personaTitel": "de verbandenmaker",
+      "personaKern": "Nim maakt betekenis door materialen naast elkaar te leggen.",
+      "personaSignalen": [
+        "begint zelden met een vast eindproduct",
+        "blijft lang bezig als er nieuwe verbanden verschijnen",
+        "laat anderen graag patronen ontdekken"
+      ],
+      "situatieBeeld": "assets/commons/case-12.jpg",
+      "situatieBeeldBron": "File:Davis Instruments weather station.jpg",
+      "personaBeeld": "assets/personas/persona-12.jpg",
+      "personaBeeldBron": "File:PHOTO-IMETs-traiining-Incident-Remote-Automatic-Weather-Station-2023.jpg"
+    },
+    {
+      "id": 13,
+      "naam": "Sefa en de zevende poging",
+      "analysefunctie": "Fictief vignet",
+      "verwachteSpanning": "Veroveraar met houvaststeun",
+      "doelpersoon": "Sefa koos eerder vaak voor de moeilijke variant als iets net buiten bereik lag. Mislukken werkte niet direct ontmoedigend; het maakte vooral zichtbaar waar de volgende poging tegenaan moest.",
+      "situatie": "Sefa probeert in een fictieve werkplaats een klein metalen bruggetje te solderen. Zes keer zakt het bruggetje in. De begeleider biedt een eenvoudiger opdracht aan, maar Sefa vraagt om nog een poging, zet de klemmen anders en wil vooral weten of het deze keer wel houdt.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat Sefa de mislukking opnieuw aangaat tot het bruggetje houdt?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat Sefa vooral een zichtbaar goedgekeurd werkstuk wil halen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat Sefa veel verschillende bouwroutes gaat verkennen?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat Sefa vooral de rustige route van de begeleider volgt?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat Sefa in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-13.jpg",
+      "beeldBron": "File:Solder workshop at FIXME Hackerspace, Renens, Lausanne (2015-05-23 06.25.10 by Mitch Altman).jpg",
+      "personaNaam": "Sefa",
+      "personaTitel": "de herkanser",
+      "personaKern": "Sefa wordt juist wakker wanneer iets net buiten bereik ligt.",
+      "personaSignalen": [
+        "mislukken maakt zichtbaar waar de volgende poging heen moet",
+        "kiest vaak nog een poging boven versimpelen",
+        "wil voelen dat de doorbraak echt verdiend is"
+      ],
+      "situatieBeeld": "assets/commons/case-13.jpg",
+      "situatieBeeldBron": "File:Solder workshop at FIXME Hackerspace, Renens, Lausanne (2015-05-23 06.25.10 by Mitch Altman).jpg",
+      "personaBeeld": "assets/personas/persona-13.jpg",
+      "personaBeeldBron": "File:Solders transition from 'Boots to Business' 140209-Z-CZ735-001.jpg"
+    },
+    {
+      "id": 14,
+      "naam": "Lio zoekt het keurmerk",
+      "analysefunctie": "Fictief vignet",
+      "verwachteSpanning": "Verwerver - Volger",
+      "doelpersoon": "Lio deed eerder graag mee aan taken met duidelijke stappen, toezicht en een officieel bewijs aan het einde. Vrij experiment vond Lio minder aantrekkelijk als het niet hielp om het bewijs netjes te halen.",
+      "situatie": "Lio doet mee aan een fictieve voedselproef. Er is een keurmerk te verdienen als alle stappen precies worden gevolgd. Lio houdt van duidelijkheid: de lijst afvinken, de potjes op volgorde zetten en aan het einde het keurmerk krijgen. Een vrije experimenteertafel ernaast trekt minder.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat Lio extra moeilijke proeven opzoekt?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat Lio vooral het keurmerk wil halen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat Lio eigen smaakroutes en experimenten bedenkt?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat Lio het stappenplan en de begeleide route volgt?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat Lio in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-14.jpg",
+      "beeldBron": "File:Aktie Canal de Panama 1880.jpg",
+      "personaNaam": "Lio",
+      "personaTitel": "de keurmerkzoeker",
+      "personaKern": "Lio houdt van duidelijke stappen met officieel bewijs aan het einde.",
+      "personaSignalen": [
+        "volgt graag een strak proces",
+        "vindt experiment minder aantrekkelijk zonder nut voor het bewijs",
+        "wil netjes kunnen aantonen dat het klopt"
+      ],
+      "situatieBeeld": "assets/commons/case-14.jpg",
+      "situatieBeeldBron": "File:Aktie Canal de Panama 1880.jpg",
+      "personaBeeld": "assets/personas/persona-14.jpg",
+      "personaBeeldBron": "File:2025 Naturalization Ceremony- receiving certificates (54813299816).jpg"
+    },
+    {
+      "id": 15,
+      "naam": "Juna in de stille rij",
+      "analysefunctie": "Fictief vignet",
+      "verwachteSpanning": "Volger met lage variatie",
+      "doelpersoon": "Juna bleef eerder betrokken wanneer een activiteit rustig, gezamenlijk en voorspelbaar verliep. Juna nam weinig initiatief buiten de groep, maar hield goed ritme wanneer een kleine handeling op het juiste moment nodig was.",
+      "situatie": "Juna staat in een fictieve museumrij waarin bezoekers samen een lichtspoor maken. Niemand hoeft iets te winnen. Het spoor werkt alleen als iedereen rustig op tijd een kleine beweging maakt. Juna glimlacht wanneer de rij klopt, neemt geen eigen zijpad en blijft vooral in het gezamenlijke ritme.",
+      "vragen": [
+        {
+          "dimensie": "weerstand",
+          "tekst": "Hoe waarschijnlijk is het dat Juna een zware persoonlijke uitdaging opzoekt?"
+        },
+        {
+          "dimensie": "resultaat",
+          "tekst": "Hoe waarschijnlijk is het dat Juna vooral een meetbaar eindresultaat wil halen?"
+        },
+        {
+          "dimensie": "routes",
+          "tekst": "Hoe waarschijnlijk is het dat Juna buiten de rij nieuwe routes of variaties onderzoekt?"
+        },
+        {
+          "dimensie": "houvast",
+          "tekst": "Hoe waarschijnlijk is het dat Juna meebeweegt met het gezamenlijke ritme?"
+        },
+        {
+          "dimensie": "instap",
+          "tekst": "Hoe waarschijnlijk is het dat Juna in deze situatie blijft meedoen?"
+        }
+      ],
+      "beeld": "assets/commons/case-15.jpg",
+      "beeldBron": "File:A-queue-of-visitors-to-Sakip-Sabanci-Museum.jpg",
+      "personaNaam": "Juna",
+      "personaTitel": "de ritmebewaker",
+      "personaKern": "Juna blijft betrokken wanneer een activiteit rustig en gezamenlijk klopt.",
+      "personaSignalen": [
+        "neemt weinig initiatief buiten de groep",
+        "voelt goed aan wanneer een kleine handeling nodig is",
+        "blijft graag in een voorspelbaar gezamenlijk ritme"
+      ],
+      "situatieBeeld": "assets/commons/case-15.jpg",
+      "situatieBeeldBron": "File:A-queue-of-visitors-to-Sakip-Sabanci-Museum.jpg",
+      "personaBeeld": "assets/personas/persona-15.jpg",
+      "personaBeeldBron": "File:Line waiting for cashier.jpg"
+    }
+  ]
+}

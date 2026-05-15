@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactielab - Archetypen Ronde 2</title>
+    <style>
+        :root {
+            --bg: #eef2f1;
+            --ink: #17212b;
+            --muted: #66737f;
+            --panel: #ffffff;
+            --line: #d8e0de;
+            --accent: #188977;
+            --accent-dark: #11695b;
+            --amber: #d9912b;
+            --danger: #d94848;
+            --blue: #4267b2;
+            --shadow: 0 18px 40px rgba(28, 44, 52, 0.14);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background:
+                radial-gradient(circle at 15% 12%, rgba(217,145,43,0.18), transparent 32%),
+                radial-gradient(circle at 85% 8%, rgba(24,137,119,0.16), transparent 34%),
+                linear-gradient(180deg, #eef2f1, #e7ecea);
+            color: var(--ink);
+        }
+
+        .page {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 32px 0;
+        }
+
+        .app-shell {
+            display: grid;
+            grid-template-columns: minmax(300px, 0.92fr) minmax(420px, 1.08fr);
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .media-panel,
+        .experiment-panel {
+            background: var(--panel);
+            border: 1px solid rgba(216, 224, 222, 0.9);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .media-panel {
+            display: grid;
+            grid-template-rows: minmax(250px, 380px) auto;
+        }
+
+        .hero-image {
+            background: url("assets/reactielab-hero.png") center / cover no-repeat;
+            min-height: 250px;
+        }
+
+        .lab-info {
+            padding: 22px 24px 24px;
+            border-top: 1px solid var(--line);
+        }
+
+        .lab-kicker {
+            color: var(--accent-dark);
+            font-weight: 750;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .lab-title {
+            margin: 6px 0 8px;
+            font-size: 2rem;
+            line-height: 1.05;
+            letter-spacing: 0;
+        }
+
+        .lab-info p {
+            color: var(--muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .experiment-panel {
+            padding: 0;
+        }
+
+        .topbar {
+            padding: 18px 22px 14px;
+            background: #f8faf9;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin-bottom: 12px;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: #e5ebe9;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), var(--amber));
+            transition: width 0.25s ease;
+        }
+
+        #game-content {
+            padding: 22px;
+        }
+
+        .case-card {
+            animation: fadeIn 0.28s ease-out;
+        }
+
+        .case-title {
+            margin: 0 0 16px;
+            font-size: 1.7rem;
+            line-height: 1.12;
+            letter-spacing: 0;
+        }
+
+        .identity-card {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 14px;
+            align-items: stretch;
+            margin: 0 0 16px;
+            border: 1px solid #cde4df;
+            border-left: 4px solid var(--accent);
+            background: #f7fbfa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .prototype-image {
+            width: 100%;
+            height: 100%;
+            min-height: 150px;
+            object-fit: cover;
+            background: #e8f4f1;
+            border-right: 1px solid #d8e9e5;
+        }
+
+        .persona-name {
+            margin: 0 0 4px;
+            font-size: 1.2rem;
+            line-height: 1.15;
+        }
+
+        .persona-subtitle {
+            color: var(--accent-dark);
+            font-size: 0.86rem;
+            font-weight: 750;
+            margin-bottom: 8px;
+        }
+
+        .identity-copy {
+            padding: 12px 14px 12px 0;
+            line-height: 1.5;
+            color: #293846;
+        }
+
+        .signal-list {
+            margin: 10px 0 0;
+            padding-left: 18px;
+            color: #3c4c58;
+        }
+
+        .signal-list li {
+            margin: 4px 0;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            min-height: 24px;
+            padding: 2px 9px;
+            margin-bottom: 8px;
+            color: #0f4f46;
+            background: #e8f4f1;
+            border: 1px solid #cde4df;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 750;
+        }
+
+        .text-band {
+            border-left: 4px solid var(--accent);
+            background: #f7fbfa;
+            padding: 12px 14px;
+            margin: 0 0 16px;
+            line-height: 1.5;
+            color: #293846;
+        }
+
+        .situation-band {
+            border-left-color: var(--amber);
+            background: #fffaf1;
+        }
+
+        .situation-card {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 14px;
+            align-items: stretch;
+            margin: 0 0 16px;
+            border: 1px solid #eedfbe;
+            border-left: 4px solid var(--amber);
+            background: #fffaf1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .situation-image {
+            width: 100%;
+            height: 100%;
+            min-height: 130px;
+            object-fit: cover;
+            background: #f7edda;
+            border-right: 1px solid #eedfbe;
+        }
+
+        .situation-copy {
+            padding: 12px 14px 12px 0;
+            line-height: 1.5;
+            color: #293846;
+        }
+
+        .meter-list {
+            display: grid;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .meter {
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .meter:last-of-type {
+            border-bottom: 0;
+            padding-bottom: 4px;
+        }
+
+        .meter-head {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 14px;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .meter-question {
+            font-weight: 650;
+            line-height: 1.38;
+        }
+
+        .meter-name {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--muted);
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--meter-color, var(--accent));
+        }
+
+        .score-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 44px;
+            height: 28px;
+            color: #10231f;
+            background: #edf3f1;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .range-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        input[type=range] {
+            width: 100%;
+            height: 8px;
+            border-radius: 999px;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            background: linear-gradient(90deg, var(--meter-color, var(--accent)) 0%, var(--meter-color, var(--accent)) var(--value, 50%), #dfe7e5 var(--value, 50%), #dfe7e5 100%);
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 5px solid var(--meter-color, var(--accent));
+            box-shadow: 0 2px 7px rgba(15, 35, 40, 0.2);
+            cursor: pointer;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 5px solid var(--meter-color, var(--accent));
+            box-shadow: 0 2px 7px rgba(15, 35, 40, 0.2);
+            cursor: pointer;
+        }
+
+        .range-hints {
+            display: flex;
+            justify-content: space-between;
+            color: var(--muted);
+            font-size: 0.77rem;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 84px;
+            margin-top: 18px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 12px;
+            font: inherit;
+            line-height: 1.4;
+            resize: vertical;
+            color: var(--ink);
+            background: #fbfdfc;
+        }
+
+        .action-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        button {
+            border: 0;
+            border-radius: 8px;
+            min-height: 50px;
+            padding: 0 18px;
+            font: inherit;
+            font-weight: 800;
+            color: #ffffff;
+            background: var(--accent-dark);
+            cursor: pointer;
+            transition: transform 0.1s ease, background 0.2s ease;
+        }
+
+        button:hover { background: #0d584c; }
+        button:active { transform: scale(0.98); }
+        button:disabled { cursor: wait; opacity: 0.74; }
+
+        .save-state {
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .access-message,
+        #finish-screen {
+            text-align: center;
+            padding: 44px 24px;
+            line-height: 1.5;
+        }
+
+        .access-message h2,
+        #finish-screen h2 {
+            margin: 0 0 8px;
+            font-size: 1.7rem;
+        }
+
+        .access-message p,
+        #finish-screen p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        #finish-screen {
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+            .page {
+                width: min(100% - 20px, 720px);
+                padding: 10px 0;
+            }
+
+            .app-shell {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .media-panel {
+                grid-template-rows: 155px auto;
+            }
+
+            .hero-image {
+                min-height: 155px;
+                background-position: center 45%;
+            }
+
+            .lab-info {
+                padding: 16px;
+            }
+
+            .lab-title {
+                font-size: 1.55rem;
+            }
+
+            #game-content {
+                padding: 16px;
+            }
+
+            .topbar {
+                padding: 14px 16px 12px;
+            }
+
+            .case-title {
+                font-size: 1.45rem;
+            }
+
+            .meter-head {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .identity-card {
+                grid-template-columns: 1fr;
+            }
+
+            .situation-card {
+                grid-template-columns: 1fr;
+            }
+
+            .prototype-image {
+                height: 180px;
+                border-right: 0;
+                border-bottom: 1px solid #d8e9e5;
+            }
+
+            .situation-image {
+                height: 170px;
+                border-right: 0;
+                border-bottom: 1px solid #eedfbe;
+            }
+
+            .identity-copy {
+                padding: 0 14px 14px;
+            }
+
+            .situation-copy {
+                padding: 0 14px 14px;
+            }
+
+            .meter-name {
+                justify-content: space-between;
+            }
+
+            .action-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <div class="app-shell">
+            <aside class="media-panel" aria-label="Reactielab">
+                <div class="hero-image" role="img" aria-label="Illustratie van een reactielab met meters"></div>
+                <div class="lab-info">
+                    <div class="lab-kicker">Archetypen ronde 2</div>
+                    <h1 class="lab-title">Reactielab</h1>
+                    <p>Lees de doelpersoonkaart, bekijk de nieuwe situatie en zet de reactie-meters.</p>
+                </div>
+            </aside>
+
+            <section class="experiment-panel">
+                <div class="topbar">
+                    <div class="meta-row">
+                        <span id="step-label">Scenario 0 / 0</span>
+                        <span>Ronde 2</span>
+                    </div>
+                    <div class="progress-track" aria-hidden="true">
+                        <div id="progress" class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div id="game-content"></div>
+
+                <div id="finish-screen">
+                    <h2>Reactielab afgerond</h2>
+                    <p>Bedankt. Alle 15 metingen zijn verwerkt.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        let vragenlijst = { dimensies: [], casussen: [] };
+        let currentStep = 0;
+        let verzendt = false;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const userHash = urlParams.get("id") || "ANONIEM";
+        const formID = urlParams.get("formID")?.trim() || "";
+        let geldigeCodes = ["TEST_30"];
+
+        const entryID_Sleutel = "entry.233683089";
+        const entryID_Data = "entry.40201663";
+
+        function escapeHTML(value) {
+            return String(value ?? "")
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
+
+        async function laadJsonPad(pad) {
+            const response = await fetch(pad, { cache: "no-store" });
+            if (!response.ok) {
+                throw new Error(`${pad} kon niet worden geladen`);
+            }
+            return response.json();
+        }
+
+        async function startApp() {
+            try {
+                const [vragenData, toegangData] = await Promise.all([
+                    laadJsonPad("vragenlijst.json"),
+                    laadJsonPad("toegangscodes.json")
+                ]);
+                vragenlijst = vragenData;
+                geldigeCodes = toegangData.geldigeCodes || [];
+            } catch (error) {
+                console.warn("Configuratie niet geladen; lokale fallback wordt gebruikt.", error);
+            }
+
+            if (!geldigeCodes.includes(userHash)) {
+                renderToegangGeweigerd();
+                return;
+            }
+
+            if (!isGeldigeFormID(formID)) {
+                renderFormIDOntbreekt();
+                return;
+            }
+
+            if (!vragenlijst.casussen?.length || !vragenlijst.dimensies?.length) {
+                renderConfiguratieFout();
+                return;
+            }
+
+            renderCasus();
+        }
+
+        function isGeldigeFormID(value) {
+            return /^[A-Za-z0-9_-]+$/.test(value);
+        }
+
+        function setProgress() {
+            const totaal = vragenlijst.casussen?.length || 0;
+            const label = totaal ? `Scenario ${Math.min(currentStep + 1, totaal)} / ${totaal}` : "Scenario 0 / 0";
+            document.getElementById("step-label").textContent = label;
+            document.getElementById("progress").style.width = totaal ? `${(currentStep / totaal) * 100}%` : "0%";
+        }
+
+        function renderToegangGeweigerd() {
+            setProgress();
+            document.getElementById("game-content").innerHTML = `
+                <div class="access-message">
+                    <h2>Code niet geldig</h2>
+                    <p>Open het Reactielab met een persoonlijke toegangscode in de link.</p>
+                </div>
+            `;
+        }
+
+        function renderFormIDOntbreekt() {
+            setProgress();
+            document.getElementById("game-content").innerHTML = `
+                <div class="access-message">
+                    <h2>Formulier ontbreekt</h2>
+                    <p>Open het Reactielab met een geldige formID in de link.</p>
+                </div>
+            `;
+        }
+
+        function renderConfiguratieFout() {
+            setProgress();
+            document.getElementById("game-content").innerHTML = `
+                <div class="access-message">
+                    <h2>Reactielab niet geladen</h2>
+                    <p>Controleer of vragenlijst.json bereikbaar en geldig is.</p>
+                </div>
+            `;
+        }
+
+        function renderCasus() {
+            verzendt = false;
+            const casussen = vragenlijst.casussen || [];
+            const c = casussen[currentStep];
+            const vragen = c.vragen || [];
+            const meters = vragenlijst.dimensies.map((dimensie) => {
+                const vraag = vragen.find((item) => item.dimensie === dimensie.id);
+                return renderSlider(dimensie, vraag?.tekst || dimensie.korteNaam);
+            }).join("");
+
+            document.getElementById("game-content").style.display = "block";
+            document.getElementById("finish-screen").style.display = "none";
+            document.getElementById("game-content").innerHTML = `
+                <article class="case-card">
+                    <h2 class="case-title">${escapeHTML(c.naam)}</h2>
+
+                    <div class="section-label">Doelpersoonkaart</div>
+                    <div class="identity-card">
+                        <img class="prototype-image" src="${escapeHTML(personaImagePath(c))}" alt="" loading="eager">
+                        <div class="identity-copy">
+                            <h3 class="persona-name">${escapeHTML(c.personaNaam || "Doelpersoon")}</h3>
+                            <div class="persona-subtitle">${escapeHTML(c.personaTitel || "doelpersoon")}</div>
+                            <div>${escapeHTML(c.personaKern || c.doelpersoon)}</div>
+                            ${renderSignalList(c.personaSignalen)}
+                        </div>
+                    </div>
+
+                    <div class="section-label">Nieuwe situatie</div>
+                    <div class="situation-card">
+                        <img class="situation-image" src="${escapeHTML(situationImagePath(c))}" alt="" loading="lazy">
+                        <div class="situation-copy">${escapeHTML(c.situatie)}</div>
+                    </div>
+
+                    <div class="meter-list">${meters}</div>
+
+                    <textarea id="toelichting" maxlength="800" placeholder="Welke informatie gaf voor jou de doorslag? (optioneel)"></textarea>
+                    <div class="action-row">
+                        <button id="next-button" type="button" onclick="volgendeStap()">Meting opslaan</button>
+                        <span id="save-state" class="save-state"></span>
+                    </div>
+                </article>
+            `;
+            initializeRanges();
+            setProgress();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function renderSlider(dimensie, vraag) {
+            const id = escapeHTML(dimensie.id);
+            const naam = escapeHTML(dimensie.korteNaam);
+            const kleur = escapeHTML(dimensie.kleur || "#188977");
+            const diagnostisch = dimensie.diagnostisch ? " diagnostisch" : "";
+            return `
+                <section class="meter${diagnostisch}" style="--meter-color: ${kleur}">
+                    <div class="meter-head">
+                        <div>
+                            <div class="meter-question">${escapeHTML(vraag)}</div>
+                        </div>
+                        <div class="meter-name">
+                            <span><span class="dot"></span>${naam}</span>
+                            <span id="val-${id}" class="score-pill">50</span>
+                        </div>
+                    </div>
+                    <div class="range-row">
+                        <input type="range" id="${id}" min="0" max="100" value="50" aria-label="${naam}">
+                        <div class="range-hints"><span>Zeer onwaarschijnlijk</span><span>Zeer waarschijnlijk</span></div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function renderSignalList(signalen) {
+            if (!Array.isArray(signalen) || !signalen.length) return "";
+            return `<ul class="signal-list">${signalen.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`;
+        }
+
+        function personaImagePath(casus) {
+            return casus.personaBeeld || `assets/prototypes/case-${String(casus.id).padStart(2, "0")}.png`;
+        }
+
+        function situationImagePath(casus) {
+            return casus.situatieBeeld || casus.beeld || `assets/commons/case-${String(casus.id).padStart(2, "0")}.jpg`;
+        }
+
+        function initializeRanges() {
+            document.querySelectorAll("input[type=range]").forEach((range) => {
+                const update = () => {
+                    range.style.setProperty("--value", `${range.value}%`);
+                    const target = document.getElementById(`val-${range.id}`);
+                    if (target) target.textContent = range.value;
+                };
+                range.addEventListener("input", update);
+                update();
+            });
+        }
+
+        async function volgendeStap() {
+            if (verzendt) return;
+            verzendt = true;
+
+            const button = document.getElementById("next-button");
+            const saveState = document.getElementById("save-state");
+            button.disabled = true;
+            saveState.textContent = "Opslaan...";
+
+            const casus = vragenlijst.casussen[currentStep];
+            const scores = {};
+            vragenlijst.dimensies.forEach((dimensie) => {
+                scores[dimensie.id] = document.getElementById(dimensie.id).value;
+            });
+
+            const data = {
+                ronde: vragenlijst.ronde || 2,
+                id: casus.id,
+                casus: casus.naam,
+                analysefunctie: casus.analysefunctie,
+                verwachteSpanning: casus.verwachteSpanning,
+                toegangscode: userHash,
+                scores,
+                toelichting: document.getElementById("toelichting").value
+            };
+
+            const url = `https://docs.google.com/forms/d/e/${formID}/formResponse?${entryID_Sleutel}=${encodeURIComponent(userHash)}&${entryID_Data}=${encodeURIComponent(JSON.stringify(data))}&submit=Submit`;
+
+            try {
+                await fetch(url, { mode: "no-cors" });
+                saveState.textContent = "Opgeslagen";
+            } catch (error) {
+                console.warn("Opslaan kon niet worden bevestigd.", error);
+                saveState.textContent = "Doorgaan";
+            }
+
+            currentStep++;
+            if (currentStep < vragenlijst.casussen.length) {
+                renderCasus();
+            } else {
+                document.getElementById("game-content").style.display = "none";
+                document.getElementById("finish-screen").style.display = "block";
+                document.getElementById("step-label").textContent = `Scenario ${vragenlijst.casussen.length} / ${vragenlijst.casussen.length}`;
+                document.getElementById("progress").style.width = "100%";
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+        }
+
+        startApp();
+    </script>
+</body>
+</html>

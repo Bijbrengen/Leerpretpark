@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wat Als? - Archetypen Game</title>
+    <style>
+        :root { --primary: #2f80ed; --success: #219653; --bg: #f4f7f6; --text: #243746; --muted: #657586; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: var(--text); display: flex; justify-content: center; padding: 20px; margin: 0; }
+        .game-container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 600px; position: relative; }
+        .progress-bar { height: 8px; background: #eee; border-radius: 4px; margin-bottom: 25px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--primary); transition: width 0.3s; }
+        .casus-card { animation: fadeIn 0.4s ease-out; }
+        h2 { margin-top: 0; color: var(--primary); }
+        .context-box { background: #f8f9fa; padding: 15px; border-radius: 12px; border-left: 5px solid var(--primary); margin: 15px 0; font-size: 0.95rem; line-height: 1.5; }
+        .question-block { margin: 24px 0; }
+        .question-text { font-weight: 650; line-height: 1.35; margin-bottom: 10px; }
+        .slider-label { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--muted); font-size: 0.82rem; margin-bottom: 8px; }
+        .score-pill { color: var(--primary); background: #edf5ff; border-radius: 999px; min-width: 42px; text-align: center; padding: 3px 8px; font-weight: 700; }
+        .range-hints { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.78rem; margin-top: 6px; }
+        input[type=range] { width: 100%; height: 6px; background: #ddd; border-radius: 5px; outline: none; -webkit-appearance: none; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; cursor: pointer; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        textarea { width: 100%; height: 80px; margin-top: 15px; border-radius: 10px; border: 1px solid #ddd; padding: 12px; font-family: inherit; resize: none; box-sizing: border-box; }
+        button { background: var(--success); color: white; border: none; padding: 16px; width: 100%; border-radius: 12px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 25px; transition: transform 0.1s, background 0.2s; }
+        button:active { transform: scale(0.98); }
+        button:hover { background: #219150; }
+        .access-message { text-align: center; padding: 30px 10px; line-height: 1.5; }
+        .access-message p { color: var(--muted); }
+        #finish-screen { text-align: center; padding: 40px 0; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="game-container">
+    <div class="progress-bar"><div id="progress" class="progress-fill" style="width: 0%;"></div></div>
+    
+    <div id="game-content">
+        </div>
+
+    <div id="finish-screen" style="display:none;">
+        <h1 style="font-size: 3rem;">Klaar</h1>
+        <h2>Missie voltooid</h2>
+        <p>Bedankt voor je deelname. Alle 30 scenario's zijn verwerkt en veilig opgeslagen in het systeem.</p>
+    </div>
+</div>
+
+<script>
+    let vragenlijst = { dimensies: [], casussen: [] };
+    let currentStep = 0;
+    const urlParams = new URLSearchParams(window.location.search);
+    const userHash = urlParams.get('id') || "ANONIEM";
+    const formID = urlParams.get('formID')?.trim() || "";
+    let geldigeCodes = ["TEST_30"];
+
+    async function laadJsonPad(pad) {
+        const response = await fetch(pad, { cache: "no-store" });
+        if (!response.ok) {
+            throw new Error(`${pad} kon niet worden geladen`);
+        }
+        return response.json();
+    }
+
+    async function startApp() {
+        try {
+            const [vragenData, toegangData] = await Promise.all([
+                laadJsonPad("vragenlijst.json"),
+                laadJsonPad("toegangscodes.json")
+            ]);
+            vragenlijst = vragenData;
+            geldigeCodes = toegangData.geldigeCodes || [];
+        } catch (error) {
+            console.warn("Externe configuratie niet geladen; lokale fallback wordt gebruikt.", error);
+        }
+
+        if (!geldigeCodes.includes(userHash)) {
+            renderToegangGeweigerd();
+            return;
+        }
+
+        if (!isGeldigeFormID(formID)) {
+            renderFormIDOntbreekt();
+            return;
+        }
+
+        if (!vragenlijst.casussen?.length || !vragenlijst.dimensies?.length) {
+            renderConfiguratieFout();
+            return;
+        }
+
+        renderCasus();
+    }
+
+    function renderToegangGeweigerd() {
+        document.getElementById('game-content').innerHTML = `
+            <div class="access-message">
+                <h2>Code niet geldig</h2>
+                <p>Open deze vragenlijst met een persoonlijke toegangscode in de link.</p>
+            </div>
+        `;
+        document.getElementById('progress').style.width = "0%";
+    }
+
+    function isGeldigeFormID(value) {
+        return /^[A-Za-z0-9_-]+$/.test(value);
+    }
+
+    function renderFormIDOntbreekt() {
+        document.getElementById('game-content').innerHTML = `
+            <div class="access-message">
+                <h2>Formulier ontbreekt</h2>
+                <p>Open deze vragenlijst met een geldige formID in de link.</p>
+            </div>
+        `;
+        document.getElementById('progress').style.width = "0%";
+    }
+
+    function renderConfiguratieFout() {
+        document.getElementById('game-content').innerHTML = `
+            <div class="access-message">
+                <h2>Vragenlijst niet geladen</h2>
+                <p>Controleer of vragenlijst.json bereikbaar en geldig is.</p>
+            </div>
+        `;
+        document.getElementById('progress').style.width = "0%";
+    }
+
+    function renderCasus() {
+        const casussen = vragenlijst.casussen || [];
+        const c = casussen[currentStep];
+        const vragen = c.vragen || [];
+        const schuifjes = vragenlijst.dimensies.map((dimensie) => {
+            const vraag = vragen.find((item) => item.dimensie === dimensie.id);
+            return renderSlider(dimensie, vraag?.tekst || dimensie.korteNaam);
+        }).join("");
+        const html = `
+            <div class="casus-card">
+                <small>Scenario ${currentStep + 1} / ${casussen.length}</small>
+                <h2>${c.naam}</h2>
+                <p><i>${c.context}</i></p>
+                <div class="context-box">
+                    <strong>Wat als?</strong><br>${c.watAls}
+                </div>
+
+                ${schuifjes}
+
+                <textarea id="toelichting" placeholder="Welke informatie gebruikte je voor je inschatting? (Optioneel)"></textarea>
+                <button onclick="volgendeStap()">Bevestigen & Volgende &rarr;</button>
+            </div>
+        `;
+        document.getElementById('game-content').innerHTML = html;
+        document.getElementById('progress').style.width = ((currentStep / casussen.length) * 100) + "%";
+        window.scrollTo(0,0);
+    }
+
+    function renderSlider(dimensie, vraag) {
+        const id = dimensie.id;
+        return `
+            <div class="question-block">
+                <div class="question-text">${vraag}</div>
+                <div class="slider-label"><span>${dimensie.korteNaam}</span><span id="val-${id}" class="score-pill">50</span></div>
+                <input type="range" id="${id}" min="0" max="100" value="50" oninput="document.getElementById('val-${id}').innerText = this.value">
+                <div class="range-hints"><span>Zeer onwaarschijnlijk</span><span>Zeer waarschijnlijk</span></div>
+            </div>
+        `;
+    }
+
+    async function volgendeStap() {
+        const scores = {};
+        vragenlijst.dimensies.forEach((dimensie) => {
+            scores[dimensie.id] = document.getElementById(dimensie.id).value;
+        });
+
+        const data = {
+            id: vragenlijst.casussen[currentStep].id,
+            casus: vragenlijst.casussen[currentStep].naam,
+            toegangscode: userHash,
+            scores,
+            toelichting: document.getElementById('toelichting').value
+        };
+
+        const entryID_Sleutel = "entry.233683089";
+        const entryID_Data = "entry.40201663";
+        
+        const url = `https://docs.google.com/forms/d/e/${formID}/formResponse?${entryID_Sleutel}=${userHash}&${entryID_Data}=${encodeURIComponent(JSON.stringify(data))}&submit=Submit`;
+        
+        fetch(url, { mode: 'no-cors' });
+
+        currentStep++;
+        if (currentStep < vragenlijst.casussen.length) {
+            renderCasus();
+        } else {
+            document.getElementById('game-content').style.display = "none";
+            document.getElementById('finish-screen').style.display = "block";
+            document.getElementById('progress').style.width = "100%";
+        }
+    }
+
+    startApp();
+</script>
+
+</body>
+</html>
+

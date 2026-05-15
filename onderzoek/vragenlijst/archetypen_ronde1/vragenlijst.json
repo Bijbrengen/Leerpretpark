@@ -1,0 +1,742 @@
+﻿{
+    "dimensies":  [
+                      {
+                          "id":  "weerstand",
+                          "korteNaam":  "Doorbraak"
+                      },
+                      {
+                          "id":  "resultaat",
+                          "korteNaam":  "Resultaat"
+                      },
+                      {
+                          "id":  "routes",
+                          "korteNaam":  "Routes"
+                      },
+                      {
+                          "id":  "houvast",
+                          "korteNaam":  "Houvast"
+                      }
+                  ],
+    "casussen":  [
+                     {
+                         "id":  1,
+                         "naam":  "David Goggins",
+                         "context":  "David Goggins deed mee aan zware militaire selectie en duursport. In bekende verhalen over hem keren fysieke uitputting, blessures en het halen van zware doelen terug.",
+                         "watAls":  "Stel dat David in een organisatie komt waar een team een bijna onhaalbaar project heeft opgegeven. Er is een korte deadline en eerdere pogingen zijn mislukt.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij het zware doel toch probeert te breken?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een meetbaar eindresultaat wil veiligstellen?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij eerst verschillende alternatieve routes onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij zich vooral voegt naar het tempo en de voorzichtigheid van het team?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  2,
+                         "naam":  "Rocky Balboa",
+                         "context":  "Bokser uit de filmreeks Rocky. Hij traint zwaar, incasseert veel klappen en het gevecht draait om blijven staan tot het einde.",
+                         "watAls":  "Stel dat Rocky een leerling begeleidt die steeds zakt voor een praktijkproef. De leerling kan stoppen of nog een keer trainen voor dezelfde zware proef.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat Rocky de zware proef opnieuw laat aangaan?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat Rocky vooral kiest voor de snelste route naar een officieel diploma?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat Rocky allerlei nieuwe trainingsvormen laat uitproberen?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat Rocky vooral kiest voor een veilig ritme waarin de leerling kan blijven meedoen?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  3,
+                         "naam":  "John Henry",
+                         "context":  "Figuur uit Amerikaanse folklore. Hij nam het als spoorwegarbeider met zijn hamer op tegen een boormachine en won, maar de inspanning kostte hem zijn leven.",
+                         "watAls":  "Stel dat John Henry in een fabriek werkt waar een nieuwe machine zijn ploeg dreigt te vervangen. Er is een demonstratiedag voor handwerk.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij de directe krachtmeting met de machine aangaat?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral zoekt naar behoud van loon, positie of opbrengst?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij nieuwe werkwijzen zoekt naast de machine?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij zich vooral aanpast aan de nieuwe werkroutine?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  4,
+                         "naam":  "Beowulf",
+                         "context":  "Held uit een Oudengels epos. Hij gaat het gevecht aan met monsters. De verhalen draaien om directe confrontatie en bescherming van de gemeenschap.",
+                         "watAls":  "Stel dat Beowulf in een dorp komt waar niemand naar een bedreigde plek durft. De groep wil wachten op hulp, maar het gevaar kan vannacht toeslaan.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij zelf naar de bedreigde plek gaat?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral de zichtbare overwinning of beloning veilig wil stellen?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij eerst verschillende verklaringen of routes onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral de bestaande groepsafspraak volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  5,
+                         "naam":  "Leonidas",
+                         "context":  "Koning van Sparta, bekend van Thermopylae waar hij met een kleine macht een nauwe pas verdedigde tegen een overmacht.",
+                         "watAls":  "Stel dat Leonidas een smalle doorgang moet bewaken terwijl de meerderheid zich kan terugtrekken. Blijven betekent groot risico.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij de doorgang blijft verdedigen ondanks overmacht?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral kiest voor de uitkomst met de meeste strategische opbrengst?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij zoekt naar een onverwachte omweg of list?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral aansluit bij het besluit van de meerderheid?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  6,
+                         "naam":  "Spartacus",
+                         "context":  "Gladiator die een grote slavenopstand tegen Rome leidde. Zijn groep won meerdere gevechten tegen legers.",
+                         "watAls":  "Stel dat Spartacus in een streng trainingskamp zit met zware regels. Er ontstaat een kans om te ontsnappen met groot risico op straf.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij de ontsnapping toch organiseert?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral kiest voor een route met concreet voordeel voor de groep?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij meerdere ontsnappingsroutes verkent?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral probeert binnen de regels mee te blijven draaien?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  7,
+                         "naam":  "Niki Lauda",
+                         "context":  "Formule 1-coureur die na een zware crash en brandwonden binnen enkele weken terugkeerde in de racewagen.",
+                         "watAls":  "Stel dat Lauda na een ernstig ongeluk een nieuwe test aangeboden krijgt. De auto is verbeterd, maar het risico is nog zichtbaar.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij snel terugkeert naar de test?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral rekent op punten, kampioenschap of meetbaar resultaat?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij nieuwe technische of tactische opties onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral het voorzichtige advies van de omgeving volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  8,
+                         "naam":  "Kathrine Switzer",
+                         "context":  "Liep in 1967 de Boston Marathon. Ondanks dat een wedstrijdleider haar van het parcours probeerde te duwen, liep ze door en finishte.",
+                         "watAls":  "Stel dat Switzer aan een wedstrijd deelneemt waar haar deelname formeel wordt betwist. Er ontstaat druk om direct te stoppen.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat zij de race alsnog voortzet?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat zij vooral kiest voor een officieel erkende uitkomst?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat zij alternatieve routes zoekt om deelname mogelijk te maken?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat zij zich neerlegt bij het bestaande wedstrijdritme?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  9,
+                         "naam":  "Ebenezer Scrooge",
+                         "context":  "Voor zijn verandering getoond als iemand die geld bewaart, kosten laag houdt en sociale uitgaven vermijdt.",
+                         "watAls":  "Stel dat Scrooge een schoolreis moet organiseren met een beperkt budget. Er zijn sobere, dure of feestelijke opties.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij weerstand of ongemak accepteert om een principieel doel te halen?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral kosten, opbrengst en financieel resultaat bewaakt?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij nieuwe bestemmingen of onverwachte vormen onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral meegaat met wat de groep prettig vindt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  10,
+                         "naam":  "Jordan Belfort",
+                         "context":  "Leidde een verkooporganisatie rond aandelen. Belscripts, commissies, snelle deals en verkoopdruk spelen een grote rol.",
+                         "watAls":  "Stel dat Belfort een nieuw educatief platform lanceert. Er is keuze tussen kwaliteit, snelle klantwerving of breed experimenteren.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij zware weerstand gebruikt als test van wie geschikt is?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral kiest voor snelle omzet en verkoopbare resultaten?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij veel verschillende inhoudelijke vormen onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral het tempo en de werkwijze van de bestaande groep volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  11,
+                         "naam":  "Charles Ponzi",
+                         "context":  "Bekend door een investeringsschema met hoge rendementen uit nieuwe inleg. De route draaide om een schijnbaar slimme arbitrage.",
+                         "watAls":  "Stel dat Ponzi een leerplatform moet verkopen. Er is weinig bewijs dat het werkt, maar er is een verhaal te maken over snelle groei.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij weerstand gebruikt om het product inhoudelijk sterker te maken?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral de belofte van snelle opbrengst verkoopt?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij verschillende echte leerpaden onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral aansluit bij bestaande onderwijsroutines?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  12,
+                         "naam":  "Bernie Madoff",
+                         "context":  "Beheerde een investeringsfonds dat stabiele rendementen leek te leveren, maar dit bleek een grootschalige fraude.",
+                         "watAls":  "Stel dat Madoff verantwoordelijk wordt voor een dashboard met leerresultaten. De resultaten wisselen, maar de buitenwereld wil stabiele groei zien.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij de moeilijke werkelijkheid openlijk aangaat?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een stabiel succesbeeld probeert te tonen?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij nieuwe manieren zoekt om werkelijk beter te meten?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral bestaande rapportageroutines volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  13,
+                         "naam":  "Enron Executives",
+                         "context":  "Gebruikten complexe financiele constructies waardoor winst en waarde hoger leken dan ze werkelijk waren.",
+                         "watAls":  "Stel dat Enron-leiders een project moeten presenteren waarvan de opbrengst onzeker is, maar investeerders groei verwachten.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat zij de inhoudelijke weerstand rechtstreeks zichtbaar maken?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat zij vooral cijfers en constructies gebruiken om resultaat te tonen?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat zij nieuwe inhoudelijke routes uitproberen?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat zij vooral aansluiten bij bestaande transparante rapportageafspraken?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  14,
+                         "naam":  "Black Friday Shopper",
+                         "context":  "Zoekt tijdens grote kortingsacties naar aanbiedingen. Draait om beperkte tijd, vergelijking en het binnenhalen van de beste deal.",
+                         "watAls":  "Stel dat deze shopper een cursus mag kiezen uit honderd opties met een korting die nog maar een uur geldig is.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de shopper een moeilijke cursus kiest vanwege de uitdaging?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de shopper vooral de beste deal of snelste opbrengst kiest?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de shopper veel verschillende opties vergelijkt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de shopper vooral de populairste keuze van de groep volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  15,
+                         "naam":  "Gordon Gekko",
+                         "context":  "Koopt en verkoopt bedrijven, richt zich op financieel rendement en waarde-extractie.",
+                         "watAls":  "Stel dat Gekko een onderpresterende school overneemt. Hij kan investeren, onderdelen verkopen of snelle targets opleggen.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij weerstand gebruikt om mensen tot een doorbraak te dwingen?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral kiest voor meetbaar rendement en snelle waarde?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij uiteenlopende pedagogische routes onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral aansluit bij de bestaande schoolcultuur?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  16,
+                         "naam":  "Tom Sawyer",
+                         "context":  "Bekend van de schutting-scene waarbij hij anderen laat geloven dat een saaie klus een bijzonder voorrecht is.",
+                         "watAls":  "Stel dat Tom een saaie klus in een projectgroep krijgt. Niemand wil eraan beginnen, maar het moet wel af.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij zelf door de saaie klus heen bijt?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij een slimme route zoekt waardoor het resultaat met minder eigen werk klaar is?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij allerlei nieuwe manieren probeert om de klus leuker te maken?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij gewoon meedoet zoals de groep het afspreekt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  17,
+                         "naam":  "Jorge Luis Borges",
+                         "context":  "Schrijver wiens werk bibliotheken, labyrinten en oneindigheid verkent. Hoe kennis en taal de werkelijkheid spiegelen.",
+                         "watAls":  "Stel dat Borges een digitale leeromgeving ontwerpt rond geschiedenis. Kiest hij voor een rechte cursus of een netwerk van bronnen?",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een zware intellectuele barriere centraal zet?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een duidelijk eindcertificaat organiseert?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij een labyrint van bronnen en verbanden ontwerpt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een eenvoudige vaste route laat volgen?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  18,
+                         "naam":  "Michel de Montaigne",
+                         "context":  "Schreef essays waarin hij gedachten onderzocht over zichzelf en de wereld. De vorm beweegt zoekend tussen onderwerpen.",
+                         "watAls":  "Stel dat Montaigne een les moet maken over burgerschap. Gebruikt hij een stappenplan of laat hij leerlingen vrij nadenken via vragen?",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij leerlingen vooral met moeilijke weerstand confronteert?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een meetbare eindopbrengst wil?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij via vrije vragen en zijpaden laat onderzoeken?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een rustige vaste route volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  19,
+                         "naam":  "Athanasius Kircher",
+                         "context":  "Geleerde die vele kennisgebieden verbond (vulcanisme, muziek, hierogliefen), ook als de conclusies later onjuist bleken.",
+                         "watAls":  "Stel dat Kircher een mysterieus object in een museum krijgt dat niemand begrijpt. Hij kan putten uit taal, techniek of religie.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral de moeilijkste weerstand wil overwinnen?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij snel een bruikbaar eindantwoord wil claimen?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij allerlei kennisgebieden erbij haalt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral de bestaande museumuitleg volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  20,
+                         "naam":  "Salvador Dali",
+                         "context":  "Surrealist die gewone objecten in vreemde, droomachtige situaties plaatste.",
+                         "watAls":  "Stel dat Dali een leerposter moet maken over tijd. Gebruikt hij een klokdiagram of beelden die tijd vreemd laten voelen?",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een zware technische uitdaging kiest?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral kiest voor duidelijke overdraagbare leeropbrengst?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij onverwachte beelden en betekenissen uitprobeert?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral de standaardvorm van een schoolposter volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  21,
+                         "naam":  "Rene Magritte",
+                         "context":  "Surrealist die speelde met het verschil tussen een ding en de afbeelding of de naam ervan.",
+                         "watAls":  "Stel dat Magritte kinderen het woord \u0027boom\u0027 moet leren. Gebruikt hij een gewone afbeelding of speelt hij met woord en betekenis?",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een moeilijke conceptuele barriere opzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral kiest voor snel correct benoemen?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij verschillende beeld-woord-combinaties onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral de standaardles volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  22,
+                         "naam":  "Louis Theroux",
+                         "context":  "Maakt documentaires waarin hij via ongemakkelijke ontmoetingen met subculturen andere werelden laat zien.",
+                         "watAls":  "Stel dat Theroux een school moet helpen begrijpen waarom leerlingen afhaken. Analyseert hij cijfers of beweegt hij mee in hun wereld?",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral de confrontatie met weerstand aangaat?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een snel meetbaar verbeterplan wil?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij via gesprekken verschillende leefwerelden verkent?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral de bestaande schoolroutine volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  23,
+                         "naam":  "Gulliver",
+                         "context":  "Komt terecht bij vreemde samenlevingen met eigen regels, zoals de Lilliputters of reuzen.",
+                         "watAls":  "Stel dat Gulliver een onbekende klas binnenkomt waar alle regels anders werken. Probeert hij een doel af te dwingen of de nieuwe wereld te begrijpen?",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral weerstand probeert te overwinnen?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral snel een nuttige positie wil krijgen?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij de vreemde regels en gebruiken onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral zonder eigen koers meebeweegt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  24,
+                         "naam":  "Leonardo da Vinci",
+                         "context":  "Schilder en onderzoeker wiens notitieboeken studie tonen naar water, vliegen, anatomie en techniek.",
+                         "watAls":  "Stel dat Leonardo een beter klaslokaal moet ontwerpen. Maakt hij een praktisch plan of onderzoekt hij licht, beweging en kunst?",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral een harde technische barriere wil doorbreken?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral zo snel mogelijk een bruikbaar eindproduct oplevert?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij veel verschillende invalshoeken onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral het bestaande klaslokaalmodel volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  25,
+                         "naam":  "Sancho Panza",
+                         "context":  "Reist mee met Don Quichot. Verzorgt praktische zaken, blijft in de buurt en ondergaat avonturen nuchter.",
+                         "watAls":  "Stel dat Sancho met een vriend aan een vreemd project begint. De vriend ziet grootse kansen, Sancho ziet praktische problemen.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat Sancho zelf de zwaarste strijd opzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat Sancho vooral een concreet voordeel of beloning zoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat Sancho zelf nieuwe avontuurlijke routes bedenkt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat Sancho meegaat en praktische houvast biedt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  26,
+                         "naam":  "Pumbaa",
+                         "context":  "Leeft volgens Hakuna Matata: doorgaan zonder zorgen, eten wat voorhanden is en in gezelschap blijven.",
+                         "watAls":  "Stel dat Pumbaa in een trainingsgroep komt waar iedereen prestatiedoelen stelt. Gaat hij mee in de sfeer of de prestatie?",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral de zwaarste uitdaging opzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral het meetbare prestatiedoel wil halen?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij veel nieuwe trainingsroutes probeert?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat hij vooral meegaat, gezelschap houdt en de sfeer draagt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  27,
+                         "naam":  "Koorzanger",
+                         "context":  "Volgt partituur en dirigent, stemt af op anderen en werkt toe naar gezamenlijke harmonie.",
+                         "watAls":  "Stel dat de koorzanger in een project komt waar iedereen een eigen route mag kiezen naast een vaste gezamenlijke oefenroute.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de koorzanger vooral een zware individuele uitdaging kiest?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de koorzanger vooral het eindresultaat of certificaat najaagt?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de koorzanger veel losse routes gaat verkennen?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de koorzanger de gezamenlijke begeleide route volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  28,
+                         "naam":  "De Line-dancer",
+                         "context":  "Danst in een groep volgens vaste passen en muziek. Draait om ritme, herhaling en synchroon bewegen.",
+                         "watAls":  "Stel dat de line-dancer een nieuwe vaardigheid leert. Er is een experimenteerhoek, een wedstrijd en een groepsroutine.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de line-dancer vooral de zwaarste individuele uitdaging kiest?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de line-dancer vooral wil winnen of de beste score halen?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de line-dancer veel eigen variaties onderzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de line-dancer de begeleide groepsroutine volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  29,
+                         "naam":  "De Conga-line danser",
+                         "context":  "Sluit aan in een rij, houdt tempo van de voorganger aan en beweegt mee met de muziek.",
+                         "watAls":  "Stel dat de danser in een onbekend spel komt met simpele groepsregels, individuele opdrachten en zijroutes.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de danser de moeilijkste individuele opdracht kiest?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de danser vooral de hoogste score wil halen?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de danser de geheime zijroutes verkent?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de danser aansluit bij de groep en het ritme volgt?"
+                                        }
+                                    ]
+                     },
+                     {
+                         "id":  30,
+                         "naam":  "De Kerkganger",
+                         "context":  "Neemt deel aan een terugkerend ritueel met vaste onderdelen, teksten en een herkenbare gemeenschap.",
+                         "watAls":  "Stel dat de kerkganger een leertraject kiest: vaste bijeenkomsten, competitie, vrij onderzoek of een prestatietoets.",
+                         "vragen":  [
+                                        {
+                                            "dimensie":  "weerstand",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de kerkganger vooral de zware prestatietoets opzoekt?"
+                                        },
+                                        {
+                                            "dimensie":  "resultaat",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de kerkganger vooral kiest voor het snelste zichtbare resultaat?"
+                                        },
+                                        {
+                                            "dimensie":  "routes",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de kerkganger een vrij onderzoekspad kiest?"
+                                        },
+                                        {
+                                            "dimensie":  "houvast",
+                                            "tekst":  "Hoe waarschijnlijk is het dat de kerkganger de vaste wekelijkse bijeenkomst volgt?"
+                                        }
+                                    ]
+                     }
+                 ]
+}

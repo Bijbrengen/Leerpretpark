@@ -1,0 +1,9 @@
+{
+  "name": "Reactielab - Archetypen Ronde 2",
+  "short_name": "Reactielab",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#eef2f1",
+  "theme_color": "#188977",
+  "icons": []
+}
