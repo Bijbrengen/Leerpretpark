@@ -6,6 +6,7 @@ De pagina gebruikt dezelfde technische submitroute als ronde 1:
 
 - toegangscode via `?id=...`
 - Google Form-id via `&formID=...`
+- toegangscode in `entry.233683089`
 - antwoordpayload als JSON in `entry.40201663`
 
 De hoofdmeting bestaat uit vier vergelijkbare meters:
